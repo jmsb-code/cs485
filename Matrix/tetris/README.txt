@@ -6,3 +6,5 @@ Credit:
 All work is my own, except for:
 - Bitmap for the letter G copied from https://gist.github.com/rothwerx/700f275d078b3483509f
 - Bitmaps of digits 0-9 adapted from https://wiki.cdot.senecapolytechnic.ca/wiki/8x8_Bitmap_Patterns_for_Digits
+- Credit for Tetris concept, mechanics, and shapes goes to original creators.
+- Credit for image of the 7 tetrominos: https://markmliu.medium.com/the-tetris-proof-60a7a69a8e04
