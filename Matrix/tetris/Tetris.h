@@ -59,6 +59,6 @@ void printScreen(uint8_t gameState[8], uint8_t screen[8], Shape as);
 int8_t absorbBlock(uint8_t gameState[8], Shape as);
 
 //Removes each completed row from gameState and shifts rows above it down, returns number of levels cleared in this way
-uint8_t clearFullRows(uint8_t gameState[8]);
+int clearFullRows(uint8_t gameState[8]);
 
 #endif

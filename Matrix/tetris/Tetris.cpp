@@ -218,8 +218,8 @@ int8_t absorbBlock(uint8_t gameState[8], Shape as){
 }
 
 //Removes each completed row from gameState and shifts rows above it down, returns number of levels cleared in this way
-uint8_t clearFullRows(uint8_t gameState[8]){
-  uint8_t cRows = 0;
+int clearFullRows(uint8_t gameState[8]){
+  int cRows = 0;
   for(int i = 0; i < 8; i++){
     if(gameState[i] == 0b11111111) { //full row detected
       for(int j = i; j > 0; j--) gameState[j] = gameState[j-1];

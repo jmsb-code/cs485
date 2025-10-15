@@ -27,10 +27,11 @@ bool Game_Over = false;
 uint8_t num_score_digits = 0;
 int scoreDigits[MAX_SCORE_DIGITS]; //Supports scores up to 999,999 by default setting
 
+//Interpret score and display with 'good game' message
 void gameOver(){
   if(num_score_digits == 0){ //determine number of digits in score on first loop through gameover
     int tempScore = score;
-    if(tempScore <= 0) tempScore = 1;
+    if(tempScore <= 0) num_score_digits = 1;
     while(tempScore > 0 && num_score_digits < MAX_SCORE_DIGITS) {
       num_score_digits++;
       tempScore /= 10;
@@ -67,9 +68,6 @@ void gameOver(){
 }
 
 void setup() {
-  //disable watchdog in case of return from reset
-  wdt_disable();
-
   //set all column pins to OUTPUT, LOW
   DDRD = 0b11111111;
   PORTD = 0b00000000;
@@ -96,6 +94,7 @@ void setup() {
 void loop() {
   // save time once per loop for consistent game logic + save processing time
   curTime = millis();
+  int speedUp = 1;
 
   if(Game_Over) {
     gameOver();
@@ -115,8 +114,11 @@ void loop() {
   if(BUTTON_RIGHT_R.detectPress() == BUTTON_PRESS){
     cShape.rotateCW(gameState);
   }
+  else if(BUTTON_RIGHT.pressed && BUTTON_LEFT.pressed){
+    speedUp = 2;
+  }
 
-  if(curTime - lastGameTick >= TICKRATE){
+  if(curTime - lastGameTick >= TICKRATE/speedUp){
     lastGameTick = curTime;
     int8_t drop = cShape.drop(gameState);
     switch(drop){
