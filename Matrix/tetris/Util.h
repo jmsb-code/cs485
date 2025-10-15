@@ -111,6 +111,7 @@ const uint8_t digitMasks[10][8] = {
 };
 const uint8_t GMasks[8] = {0B00111100, 0B01100110, 0B11000000,0B11000000,0B11001110,0B01100110,0B00111110,0B00000000};
 
+/*--------    Game Variables    --------*/
 uint8_t gameState[8] = EMPTY_M;
 uint8_t screenOut[8] = EMPTY_M;
 
